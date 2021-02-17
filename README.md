@@ -27,7 +27,7 @@ Project created with react, redux, firebase (auth, send recovery password, fires
 
 ##  ⚙️ Configure project:
 
-In the config dir, firebase.js arquive, you need set informations about your database firebase.
+In the config dir, firebase.js archive, you need set informations about your database firebase.
 
 <br/>
 
