@@ -4,12 +4,17 @@ import {store, persistor} from '../src/store';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 /** páginas */
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+
 import Login from './view/login/';
 import NovoUsuario from './view/usuario-novo/';
 import Home from './view/home/';
 import UsuarioRecuperarSenha from './view/usuario-recuperar-senha';
 import EventoCadastro from './view/evento-cadastro';
 import EventoDetalhes from './view/evento-detalhes';
+
+
 
 
 function App() {
@@ -25,6 +30,7 @@ function App() {
           <Route exact path="/eventocadastro" component={EventoCadastro} />
           <Route  path="/eventodetalhes/:id" component={EventoDetalhes} />
           <Route  path="/editarevento/:id" component={EventoCadastro} />
+         <NotificationContainer />
         </Router>
 
       </PersistGate>

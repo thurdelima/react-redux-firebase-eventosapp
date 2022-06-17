@@ -30,6 +30,10 @@ function NovoUsuario() {
           firebase.auth().createUserWithEmailAndPassword(email,senha).then(resultado => {
             setCarregando(0);
             setMsgTipo('sucesso');
+
+            setEmail('');
+            setSenha('');
+
           }).catch(erro => {
             setMsgTipo('erro');
               switch(erro.message){
@@ -62,8 +66,8 @@ function NovoUsuario() {
             <form className="text-center form-login mx-auto mt-5">
                 <h1 className="h3 mb-3 text-black font-weight-bold">Cadastro</h1>
 
-               <input onChange={(e) => setEmail(e.target.value)} type="email" className="form-control my-2" placeholder="Email" />
-               <input onChange={(e) => setSenha(e.target.value)} type="password" className="form-control my-2" placeholder="Senha" />
+               <input onChange={(e) => setEmail(e.target.value)} value={email} type="email" className="form-control my-2" placeholder="Email" />
+               <input onChange={(e) => setSenha(e.target.value)} value={senha} type="password" className="form-control my-2" placeholder="Senha" />
             
             
                 {

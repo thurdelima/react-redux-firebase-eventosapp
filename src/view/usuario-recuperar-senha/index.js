@@ -15,6 +15,7 @@ function UsuarioRecuperarSenha() {
     function recuperarSenha() {
         firebase.auth().sendPasswordResetEmail(email).then(resultado => {
             setMsg('Enviamos um link para seu e-mail para redefinir a senha');
+            setEmail('');
         }).catch(erro => {
             setMsg('Verifique se o e-mail é invalido.')
         })
@@ -26,7 +27,7 @@ function UsuarioRecuperarSenha() {
             
                 <form className="text-center form-login mx-auto mt-5">
                     <h3 className="mb-3 font-weight-bold">Recuperar Senha</h3>
-                    <input onChange={(e) => setEmail(e.target.value)} type="email" className="form-control my-2" placeholder="Email" />
+                    <input onChange={(e) => setEmail(e.target.value)} type="email" value={email} className="form-control my-2" placeholder="Email" />
 
                     <div className="msg my-4 text-center">
                         <span>{msg}</span>

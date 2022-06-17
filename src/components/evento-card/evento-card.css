@@ -24,3 +24,60 @@
     min-height: 100px;
     min-width: 100%;
 }
+
+.view-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width:1281px) { 
+
+    .view-block {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+
+}
+
+
+@media (min-width:1025px) { 
+    
+    .view-block {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+}
+
+
+@media (min-width: 769px)  { 
+
+    .view-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+
+
+
+@media (min-width: 320px) and (max-width: 480px)  { 
+
+    .view-block {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+
+    }
+
+    .adjust-icon {
+        margin-right: 5px;
+    }
+
+}

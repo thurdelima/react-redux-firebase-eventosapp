@@ -6,6 +6,9 @@ import {Link, Redirect} from 'react-router-dom';
 import firebase from '../../config/firebase';
 import 'firebase/auth';
 
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+
+
 import {useSelector, useDispatch} from 'react-redux';
 
 
@@ -28,7 +31,16 @@ function login() {
                 dispatch({type: 'LOG_IN', usuarioEmail: email});
             }, 2000);
         }).catch(erro => {
-            setMsgTipo('erro');
+
+            NotificationManager.error('Verifique seus dados', 'E-mail ou senha incorreta', 2000);
+
+            // setInterval(() => {
+            //     setMsgTipo('erro');
+            // }, 2000);
+            
+            setEmail('');
+            setSenha('');
+            setMsgTipo('');
         });
 
 
@@ -53,18 +65,13 @@ function login() {
                 </div>
         
          
-            <input onChange={(e) => setEmail(e.target.value)} type="email" id="inputEmail" className="form-control my-2" placeholder="Email " />
-            <input onChange={(e) => setSenha(e.target.value)} type="password" id="inputPassword" className="form-control my-2" placeholder="Senha" />
+            <input onChange={(e) => setEmail(e.target.value)} type="email" value={email} id="inputEmail" className="form-control my-2" placeholder="Email " />
+            <input onChange={(e) => setSenha(e.target.value)} type="password" value={senha} id="inputPassword" className="form-control my-2" placeholder="Senha" />
             
         
             <button onClick={logar} className="btn btn-lg btn-block btn-login" type="button">Sign in</button>
 
-            <div className="msg-login text-white text-center my-5">
-                
-                    {msgTipo === 'sucesso' && <span><strong>Você está conectado! &#128526;</strong></span>}
-                    {msgTipo === 'erro' && <span><strong>Ops !</strong> Verifique se a senha ou usuário estão corretos! &#128546; </span>}
-                
-            </div>
+            
             
             <div className="opcoes-login text-center mt-5">
                 <Link to="/usuariorecuperarsenha" className="mx-2" >Recuperar senha</Link>
@@ -72,6 +79,12 @@ function login() {
                 <Link to="novousuario" className="mx-2" >Quero cadastrar</Link>
             </div>
         </form>
+        <div className="msg-login text-white text-center my-5">
+                
+                    {msgTipo === 'sucesso' && <span><strong>Você está conectado! &#128526;</strong></span>}
+                    {msgTipo === 'erro' && <span><strong>Ops !</strong> Verifique se a senha ou usuário estão corretos! &#128546; </span>}
+                
+            </div>
       </div>
     )
 }

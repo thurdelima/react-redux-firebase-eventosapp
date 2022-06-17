@@ -21,14 +21,14 @@ function EventoCard({id, img, titulo, detalhes, visualizacoes}) {
 
                 <div className="row rodape-card d-flex align-items-center">
                     
-                    <div className="col-6">
+                    <div className="col-md-8 col-6">
                         <Link to={'/eventodetalhes/' + id} className="btn btn-sm btn-detalhes">+ detalhes</Link>
                     </div>
 
                 
 
-                    <div className="col-6 text-align">
-                        <i class="fas fa-eye"></i>
+                    <div className="col-md-4 col-6 text-align view-block">
+                        <i class="fas fa-eye adjust-icon"></i>
                         <span> {visualizacoes}</span>
 
                     </div>
